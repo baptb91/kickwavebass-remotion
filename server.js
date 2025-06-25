@@ -18,7 +18,6 @@ app.post('/make', async (req, res) => {
     const fps = 30;
     const width = 1080;
     const height = 1920;
-    // Toujours pair, toujours numériques
     if (isNaN(audio_duration) || audio_duration <= 0) {
       return res.status(400).send('audio_duration doit être un nombre positif');
     }
@@ -29,7 +28,7 @@ app.post('/make', async (req, res) => {
 
     const outPath = path.join(__dirname, 'out.mp4');
     await renderMedia({
-      serveUrl: 'http://localhost:3000', // Adapter si besoin pour Render
+      serveUrl: 'https://685c251cd86c6ea19bf1e63b--rad-yeot-5d8524.netlify.app', // <-- Ton URL Netlify !
       composition: 'main',
       codec: 'h264',
       outputLocation: outPath,
@@ -45,7 +44,7 @@ app.post('/make', async (req, res) => {
     });
     res.download(outPath);
   } catch (err) {
-    console.error(err);
+    console.error('Erreur complète lors du rendu:', err);
     res.status(500).send('Erreur lors du rendu : ' + err.message);
   }
 });
