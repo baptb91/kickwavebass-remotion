@@ -28,7 +28,7 @@ app.post('/make', async (req, res) => {
 
     const outPath = path.join(__dirname, 'out.mp4');
     await renderMedia({
-      serveUrl: 'https://685c251cd86c6ea19bf1e63b--rad-yeot-5d8524.netlify.app', // <-- Ton URL Netlify !
+      serveUrl: 'https://685c2b4c96b88d98abfc0890--vermillion-lokum-f258ae.netlify.app', // <-- Ton URL Netlify !
       composition: 'main',
       codec: 'h264',
       outputLocation: outPath,
